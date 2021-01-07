@@ -11,7 +11,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include 'blocks/head.php' ?>
+    <title>Lease Information Sheet</title>
+    <?php include 'blocks/head.php' ?>
 </head>
 <body>
 
@@ -21,6 +22,12 @@
 </div>
 
 <?php include "blocks/nav_bar.php" ?>
+    
+<div class="container">
+    <div class="">
+        <div id="progressBar" style="height: 130px"></div>
+    </div>
+</div>
 
 <div class="container" style="margin-top:30px">
     <div class="row">

@@ -22,11 +22,19 @@
 </div>
 
 <?php include "blocks/nav_bar.php" ?>
-    
-    <div class="container">
-        <h2> body </h2>
-    </div>
 
+<div class="container">
+    <div class="">
+        <div id="progressBar" style="height: 130px"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="text-center" style="margin-top:30px">
+        <h3>Required Documents</h3>
+        <p> Before you continue, you need to have the following documents:</p>
+</div>    
+    
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
 </div>
