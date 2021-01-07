@@ -47,6 +47,18 @@
   </div>  
 </nav>
 
+<div class="container">
+    <div class="col-sm-4">
+        <h3>Terms<h3>
+    </div>
+    <div class="col-sm-4">
+        <h3>Reference<h3>
+    </div>
+    <div class="col-sm-4">
+        <h3>Notes<h3>
+    </div>
+</div>
+
 <div class="container" style="margin-top:30px">
   <div class="row">
     <div class="col-sm-12">
