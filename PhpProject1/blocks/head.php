@@ -10,5 +10,4 @@
   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"> </script> 
   <script src="scripts/progressBar.js"></script>
   <script src="libraries/progressStep.js"></script>
-  <script src="scripts/main.js"></script>
   <link rel="stylesheet" href="css/style.css">

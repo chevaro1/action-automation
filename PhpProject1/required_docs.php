@@ -13,6 +13,7 @@
 <head>
     <title>Document Automation</title>
     <?php include 'blocks/head.php' ?>
+    <script src="scripts/required-docs.js"></script>
 </head>
 <body>
 
