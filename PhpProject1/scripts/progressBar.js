@@ -35,7 +35,7 @@ function onClick() {
                 $progressBar.addStep("Finish ");
                 //$progressBar.addStep("Schedule");
                 
-                for (var stepCounter = 0; stepCounter < 4; stepCounter++) {
+                for (var stepCounter = 1; stepCounter < 4; stepCounter++) {
                     var currentStep = $progressBar.getStep(stepCounter);
                     currentStep.onClick = onClick;
                     currentStep.beforeEntry = beforeEntry;
@@ -44,7 +44,7 @@ function onClick() {
                     currentStep.afterExit = afterExit;
                 }
                 
-                $progressBar.setCurrentStep(0);
+                $progressBar.setCurrentStep(1);
                 $progressBar.refreshLayout();
                 
                 function resetVisited() {

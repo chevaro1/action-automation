@@ -158,7 +158,6 @@
             <button type="button" class="btn btn-secondary btn-lg">Submit</button>
         </div>
     </div>
-
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
 </div>
