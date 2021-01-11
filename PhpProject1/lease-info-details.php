@@ -1,6 +1,6 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -19,11 +19,11 @@
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Lease information details</h1>
-  <p>Lease information details</p> 
+  <p>Lease information details</p>
 </div>
 
 <?php include "blocks/nav_bar.php" ?>
-    
+
 <div class="container">
     <div class="">
         <div id="progressBar" style="height: 130px"></div>
@@ -161,7 +161,7 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
 </div>
-    
+
 <!-- Modal -->
 <div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -173,15 +173,20 @@
         </button>
       </div>
       <div class="modal-body" id="modal-body">
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" onclick="save_form_data()" class="btn btn-primary">Continue</button>
       </div>
     </div>
   </div>
 </div>
+
+<div id="loader-wrapper" style="display: none;">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
 
 </body>
 </html>
