@@ -1,0 +1,22 @@
+{
+  "name": "action-automation",
+  "version": "1.0.0",
+  "description": "This is the repo for greg lazarevs project to automate the creation of personaliser letters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chevaro1/action-automation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chevaro1/action-automation/issues"
+  },
+  "homepage": "https://github.com/chevaro1/action-automation#readme",
+  "dependencies": {
+    "tabulator-tables": "^4.9.3"
+  }
+}
