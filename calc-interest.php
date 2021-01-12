@@ -13,7 +13,7 @@
 <head>
     <title>Document Automation</title>
     <?php include 'blocks/head.php' ?>
-    <script src="scripts/required-docs.js"></script>
+    <link href="node_modules/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -30,11 +30,17 @@
     </div>
 </div>
 
+<div class="container">
+  <div id="example-table"></div>
+</div>
 
+</div>
 
 <div class="jumbotron text-center" style="margin-bottom:0; margin-top:25px">
   <p>Footer</p>
 </div>
 
 </body>
+
+<script src="scripts/calc-interest.js"></script>
 </html>
