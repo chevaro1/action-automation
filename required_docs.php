@@ -1,11 +1,11 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+include 'blocks/logged-in.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <h1>Document Automation</h1>
-  <p>Home Page</p> 
+  <p>Home Page</p>
 </div>
 
 <?php include "blocks/nav_bar.php" ?>
@@ -41,13 +41,13 @@
             <li class="list-group-item">A Title Register</li>
             <li class="list-group-item">The Lease</li>
     </div>
-</div>    
+</div>
 <div class="container" style="margin-bottom:20px">
     <div class="text-center">
         <button onclick="confirm()" type="button" class="btn btn-secondary btn-lg">Confirm</button>
     </div>
 </div>
-    
+
 <div class="jumbotron text-center" style="margin-bottom:0; margin-top:25px">
   <p>Footer</p>
 </div>
