@@ -23,9 +23,15 @@ include 'blocks/logged-in.php';
 
 <?php include "blocks/nav_bar.php" ?>
 
-    <div class="container">
-        <h2> body </h2>
-    </div>
+<div class="container text-center">
+  <main role="main" class="inner cover">
+      <h1 class="cover-heading">Document Automation Page</h1>
+      <p class="lead">Please press the button below to start the process</p>
+      <p class="lead">
+        <a href="required_docs.php" class="btn btn-lg btn-secondary">Begin</a>
+      </p>
+    </main>
+</div>
 
 <div class="jumbotron text-center" style="margin-bottom:0">
   <p>Footer</p>
