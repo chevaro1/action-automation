@@ -80,9 +80,9 @@ var dailyInterest = function(value, data, type, params, component){
 };
 
 var interestPayable = function(value, data, type, params, component){
-    console.log("interest payable days = " + data.days);
-    console.log("interest payable daily interest = " + data.interestRate);
-    console.log("interest payable outstanding = " + data.outstanding);
+    //console.log("interest payable days = " + data.days);
+    //console.log("interest payable daily interest = " + data.interestRate);
+    //console.log("interest payable outstanding = " + data.outstanding);
 
     if(data.outstanding === undefined || data.interestRate === undefined || data.days === undefined) {
       return 0;
@@ -93,16 +93,16 @@ var interestPayable = function(value, data, type, params, component){
     }
 
     var val = data.interestRate;
-    console.log("daily payable interest start val = " + val);
+    //console.log("daily payable interest start val = " + val);
     var res = (val / 100) / 365;
     res = res.toFixed(9);
-    console.log("daily payable interest = " + res);
+    //console.log("daily payable interest = " + res);
 
-    console.log("total = " + (data.outstanding * res * data.days));
+    //console.log("total = " + (data.outstanding * res * data.days));
     var total = (data.outstanding * res * data.days);
     data.interestPayable = total;
-    console.log("interest payable value = " + data.interestPayable);
-    console.log("array value for total = " + tabledata[0].interestPayable);
+    //console.log("interest payable value = " + data.interestPayable);
+    //console.log("array value for total = " + tabledata[0].interestPayable);
     //data.interestPayable.setValue(total);
     return total.toFixed(2);
 };
@@ -130,6 +130,12 @@ var intPayTitle = function(value, data){
 
  //create Tabulator on DOM element with id "example-table"
  var table = new Tabulator("#example-table", {
+    dataEdited:function(data){
+      console.log("THE DATA HAS BEEN EDITED, WERE FREE BABY");
+      getServiceChargeInt();
+      getDailyInterest();
+      getServiceCharge();
+    },
   	height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
   	data:tabledata, //assign data to table
   	layout:"fitColumns", //fit columns to width of table (optional)
@@ -230,5 +236,13 @@ function getServiceCharge() {
 
 function getServiceChargeInt() {
   var res = table.getCalcResults();
-  console.log("service charge int = " + res().bottom.interestPayable);
+  console.log("service charge int = " + res.bottom.interestPayable);
+  tabledata2[1].total = res.bottom.interestPayable;
+}
+
+
+function getDailyInterest() {
+  var res = table.getCalcResults();
+  console.log("service charge int = " + res.bottom.dailyInterest);
+  tabledata2[3].total = res.bottom.dailyInterest;
 }

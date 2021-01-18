@@ -21,23 +21,23 @@ $notes_reminders = $_POST['notes_reminders'];
 
 
 
-$_SESSION['ref_reg_owner'] = ref_reg_owner;
-$_SESSION['ref_address'] = ref_address;
-$_SESSION['ref_addref_leaseress'] = ref_lease;
-$_SESSION['ref_rtm'] = ref_rtm;
-$_SESSION['ref_rent'] = ref_rent;
-$_SESSION['ref_service_charges'] = ref_service_charges;
-$_SESSION['notes_service_charges'] = notes_service_charges;
-$_SESSION['ref_interest'] = ref_interest;
-$_SESSION['notes_interest'] = notes_interest;
-$_SESSION['ref_costs'] = ref_costs;
-$_SESSION['notes_costs'] = notes_costs;
-$_SESSION['ref_forfeiture'] = ref_forfeiture;
-$_SESSION['ref_lender'] = ref_lender;
-$_SESSION['notes_lender'] = notes_lender;
-$_SESSION['ref_correspondence_address'] = ref_correspondence_address;
-$_SESSION['ref_reminders'] = ref_reminders;
-$_SESSION['notes_reminders'] = notes_reminders;
+$_SESSION['ref_reg_owner'] = $ref_reg_owner;
+$_SESSION['ref_address'] = $ref_address;
+$_SESSION['ref_addref_leaseress'] = $ref_lease;
+$_SESSION['ref_rtm'] = $ref_rtm;
+$_SESSION['ref_rent'] = $ref_rent;
+$_SESSION['ref_service_charges'] = $ref_service_charges;
+$_SESSION['notes_service_charges'] = $notes_service_charges;
+$_SESSION['ref_interest'] = $ref_interest;
+$_SESSION['notes_interest'] = $notes_interest;
+$_SESSION['ref_costs'] = $ref_costs;
+$_SESSION['notes_costs'] = $notes_costs;
+$_SESSION['ref_forfeiture'] = $ref_forfeiture;
+$_SESSION['ref_lender'] = $ref_lender;
+$_SESSION['notes_lender'] = $notes_lender;
+$_SESSION['ref_correspondence_address'] = $ref_correspondence_address;
+$_SESSION['ref_reminders'] = $ref_reminders;
+$_SESSION['notes_reminders'] = $notes_reminders;
 
 
 
