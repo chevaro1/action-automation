@@ -108,8 +108,24 @@ var interestPayable = function(value, data, type, params, component){
 };
 
 var dInterestCalc = function(values, data){
-  console.log("date = " + data.sdate);
-  return 11;
+  console.log("Hi there we are in the daily interest calculator");
+  var len = tabledata.length;
+  len = len-1;
+  var outstand = tabledata[len].outstanding;
+  console.log("amount outstanfding = " + outstand);
+  var val = tabledata[len].interestRate;
+  var dInt = (val / 100) / 365;
+  dInt = dInt.toFixed(9);
+  console.log("daily interest = " + dInt);
+  return (outstand * dInt).toFixed(2);
+};
+
+var dIntTitle = function(values, data){
+  return "Daily Interest:";
+};
+
+var intPayTitle = function(value, data){
+  return "total:";
 };
 
  //create Tabulator on DOM element with id "example-table"
@@ -131,7 +147,7 @@ var dInterestCalc = function(values, data){
       var rowNo = row.getPosition();
       tabledata[rowNo].interestPayable = 1;
     }},
- 	 	{title:"Interest Rate %", field:"interestRate", editor: "input", formatter:function(cell){
+ 	 	{title:"Interest Rate %", field:"interestRate", editor: "input", bottomCalc:dIntTitle, formatter:function(cell){
       if (cell.getValue() === undefined){
         return 0;
       }
@@ -145,7 +161,7 @@ var dInterestCalc = function(values, data){
       tabledata[rowNo].interestPayable = 1;
     }},
     {title:"Daily Interest Rate", field:"dailyInterest", mutator: dailyInterest, bottomCalc:dInterestCalc},
-    {title:"Amount Outstanding", field:"outstanding", editor: true, cellEdited: function(cell) {
+    {title:"Amount Outstanding", field:"outstanding", editor: true, bottomCalc:intPayTitle, cellEdited: function(cell) {
       var row = cell.getRow();
       var rowNo = row.getPosition();
       tabledata[rowNo].interestPayable = 1;
@@ -203,3 +219,16 @@ var table2 = new Tabulator("#table-2", {
      }}
    ],
  });
+
+
+function getServiceCharge() {
+  var len = tabledata.length;
+  len = len-1;
+  tabledata2[0].total = tabledata[len].outstanding;
+}
+
+
+function getServiceChargeInt() {
+  var res = table.getCalcResults();
+  console.log("service charge int = " + res().bottom.interestPayable);
+}
