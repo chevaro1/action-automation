@@ -11,6 +11,13 @@
    {sdate:"", fdate:"", days:0, interestRate:0, dailyInterest:0, outstanding:0, interestPayable:0}
  ];
 
+ var tabledata2 = [
+   {charges:"Service charges", total:0},
+   {charges:"Service charges interest", total:0},
+   {charges:"Legal Costs", total:0},
+   {charges:"Daily Interest", total:0},
+ ];
+
  // new Date("dateString") is browser-dependent and discouraged, so we'll write
 // a simple parse function for U.S. date format (which does no error checking)
 function parseDate(str) {
@@ -58,6 +65,10 @@ var dateEditor = function(cell, onRendered, success, cancel, editorParams){
 
 var dailyInterest = function(value, data, type, params, component){
   //console.log("daily interest called" + value);
+  if(value == undefined) {
+    return 0;
+  }
+
   if(value == 0) {
     return 0;
   }
@@ -72,6 +83,10 @@ var interestPayable = function(value, data, type, params, component){
     console.log("interest payable days = " + data.days);
     console.log("interest payable daily interest = " + data.interestRate);
     console.log("interest payable outstanding = " + data.outstanding);
+
+    if(data.outstanding === undefined || data.interestRate === undefined || data.days === undefined) {
+      return 0;
+    }
 
     if(data.outstanding === 0 || data.interestRate === 0 || data.days === 0) {
       return 0;
@@ -90,8 +105,13 @@ var interestPayable = function(value, data, type, params, component){
     console.log("array value for total = " + tabledata[0].interestPayable);
     //data.interestPayable.setValue(total);
     return total.toFixed(2);
-
 };
+
+var dInterestCalc = function(values, data){
+  console.log("date = " + data.sdate);
+  return 11;
+};
+
  //create Tabulator on DOM element with id "example-table"
  var table = new Tabulator("#example-table", {
   	height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
@@ -99,6 +119,9 @@ var interestPayable = function(value, data, type, params, component){
   	layout:"fitColumns", //fit columns to width of table (optional)
     reactiveData: true,
   	columns:[ //Define Table Columns
+    {formatter:"rowSelection", titleFormatter:"rowSelection", hozAlign:"center", width:50, headerSort:false, cellClick:function(e, cell){
+      cell.getRow().toggleSelect();
+    }},
  	 	{title:"Start Date", field:"sdate", editor:dateEditor},
  	 	{title:"End Date", field:"fdate", sorter:"date", editor:dateEditor},
  	 	{title:"Days", field:"days", editor:"input", formatter: function(cell){
@@ -109,6 +132,9 @@ var interestPayable = function(value, data, type, params, component){
       tabledata[rowNo].interestPayable = 1;
     }},
  	 	{title:"Interest Rate %", field:"interestRate", editor: "input", formatter:function(cell){
+      if (cell.getValue() === undefined){
+        return 0;
+      }
       var res = cell.getValue() + "%";
       return res;
     }, cellEdited:function(cell){
@@ -118,17 +144,62 @@ var interestPayable = function(value, data, type, params, component){
       tabledata[rowNo].dailyInterest = cell.getValue();
       tabledata[rowNo].interestPayable = 1;
     }},
-    {title:"Daily Interest Rate", field:"dailyInterest", mutator: dailyInterest},
+    {title:"Daily Interest Rate", field:"dailyInterest", mutator: dailyInterest, bottomCalc:dInterestCalc},
     {title:"Amount Outstanding", field:"outstanding", editor: true, cellEdited: function(cell) {
       var row = cell.getRow();
       var rowNo = row.getPosition();
       tabledata[rowNo].interestPayable = 1;
     }},
-    {title:"Interest Payable", field:"interestPayable", mutator:interestPayable, formatter:"money", formatterParams:{
+    {title:"Interest Payable", field:"interestPayable", mutator:interestPayable, bottomCalc:"sum", bottomCalcParams:{precision:2}, formatter:"money", formatterParams:{
     decimal:".",
     thousand:",",
     symbol:"£",
     precision:false,
     }}
   	],
+ });
+
+ //Add row on "Add Row" button click
+document.getElementById("add-row").addEventListener("click", function(){
+  tabledata.push([{sdate:"", fdate:"", days:0, interestRate:0, dailyInterest:0, outstanding:0, interestPayable:0}]);
+//  table.addRow({});
+});
+
+//trigger download of data.csv file
+$("#download-csv").click(function(){
+    table.download("csv", "data.csv");
+});
+
+$("#delete-row").click(function(){
+  var selectedRows = table.getSelectedRows();
+  for(var i=0;i<selectedRows.length;i++) {
+    selectedRows[i].delete();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+//create Tabulator on DOM element with id "example-table"
+var table2 = new Tabulator("#table-2", {
+   height:155, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
+   data:tabledata2, //assign data to table
+   layout:"fitColumns", //fit columns to width of table (optional)
+   reactiveData: true,
+   columns:[ //Define Table Columns
+     {title:"Charges", field:"charges"},
+     {title:"total", field:"total", formatter:"money", formatterParams:{
+     decimal:".",
+     thousand:",",
+     symbol:"£",
+     precision:false,
+     }}
+   ],
  });

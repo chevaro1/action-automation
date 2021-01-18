@@ -123,8 +123,10 @@ function check_valid() {
     var phrase = "We have detected " + count + " empty cells within the form, do you still wish to continue?";
     document.getElementById("modal-body").innerHTML = phrase;
     $('#warning').modal();
+    return;
   }
 
+save_form_data();
 
 }
 
