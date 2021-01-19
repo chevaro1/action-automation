@@ -78,6 +78,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">RTM/ Freeholder/ Manager</span>
                     </div>
                     <input type="text" class="form-control col-sm-4" id="ref-rtm" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control col-sm-4" id="notes-rtm" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -86,6 +87,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Rent</span>
                     </div>
                     <input type="text" class="form-control col-sm-4" id="ref-rent" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control col-sm-4" id="notes-rent" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
