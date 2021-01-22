@@ -42,16 +42,4 @@ $_SESSION['notes_reminders'] = $notes_reminders;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
  ?>

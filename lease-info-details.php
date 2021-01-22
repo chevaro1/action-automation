@@ -51,9 +51,18 @@ include 'blocks/logged-in.php';
             <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-4">
+                          <span class="input-group-text col-12" id="basic-addon3">Case Number</span>
+                        </div>
+                        <input type="text" id="case-number" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    </div>
+            </div>
+            <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend col-4">
                           <span class="input-group-text col-12" id="basic-addon3">Registered Owner</span>
                         </div>
                         <input type="text" id="ref-reg-owner" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                        <input type="text" id="notes-reg-owner" class="form-control col-sm-4" aria-describedby="basic-addon3">
                     </div>
             </div>
             <div class="form-group">
@@ -62,6 +71,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Address</span>
                     </div>
                     <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -70,6 +80,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Lease</span>
                     </div>
                     <textarea class="form-control col-sm-4" id="ref-lease" aria-label="With textarea"></textarea>
+                    <textarea class="form-control col-sm-4" id="notes-lease" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -123,6 +134,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Forfeiture</span>
                     </div>
                     <input type="text" class="form-control col-sm-4" id="ref-forfeiture" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control col-sm-4" id="notes-forfeiture" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -140,6 +152,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Correspondence Address</span>
                     </div>
                     <textarea class="form-control col-sm-4" id="ref-correspondence-address" aria-label="With textarea"></textarea>
+                    <textarea class="form-control col-sm-4" id="notes-correspondence-address" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -180,6 +193,28 @@ include 'blocks/logged-in.php';
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" onclick="save_form_data()" class="btn btn-primary">Continue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- necessary modal -->
+<!-- Modal -->
+<div class="modal fade" id="necessary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Incomplete Form Warning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-necessary">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
