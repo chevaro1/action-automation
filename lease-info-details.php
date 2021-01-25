@@ -53,7 +53,7 @@ include 'blocks/logged-in.php';
                         <div class="input-group-prepend col-4">
                           <span class="input-group-text col-12" id="basic-addon3">Case Number</span>
                         </div>
-                        <input type="text" id="case-number" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                        <input type="text" id="case-number" class="form-control col-sm-4" aria-describedby="basic-addon3" onkeypress="return isNumber(event)" >
                     </div>
             </div>
             <div class="form-group">

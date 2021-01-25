@@ -172,7 +172,9 @@ function save_form_data() {
 
   for (i = 0; i < formmembers.length; i++) {
     if (formmembers[i] === "") {
+      console.log("found empty \n");
       formmembers[i] = "empty";
+      console.log("empty  = " + formmembers[i]);
     }
   }
 
@@ -180,31 +182,31 @@ function save_form_data() {
     type: 'POST',
     url: 'php/save_form_data.php',
     data: {
-      case_number: case_number,
-      ref_reg_owner: ref_reg_owner,
-      notes_reg_owner: notes_reg_owner,
-      ref_address: ref_address,
-      notes_address: notes_address,
-      ref_lease: ref_lease,
-      notes_lease: notes_lease,
-      ref_rtm: ref_rtm,
-      notes_rtm: notes_rtm,
-      ref_rent: ref_rent,
-      notes_rent: notes_rent,
-      ref_service_charges: ref_service_charges,
-      notes_service_charges: notes_service_charges,
-      ref_interest: ref_interest,
-      notes_interest: notes_interest,
-      ref_costs: ref_costs,
-      notes_costs: notes_costs,
-      ref_forfeiture: ref_forfeiture,
-      notes_forfeiture: notes_forfeiture,
-      ref_lender: ref_lender,
-      notes_lender: notes_lender,
-      ref_correspondence_address: ref_correspondence_address,
-      notes_correspondence_address: notes_correspondence_address,
-      ref_reminders: ref_reminders,
-      notes_reminders: notes_reminders
+      case_number: formmembers[0],
+      ref_reg_owner: formmembers[1],
+      notes_reg_owner: formmembers[2],
+      ref_address: formmembers[3],
+      notes_address: formmembers[4],
+      ref_lease: formmembers[5],
+      notes_lease: formmembers[6],
+      ref_rtm: formmembers[7],
+      notes_rtm: formmembers[8],
+      ref_rent: formmembers[9],
+      notes_rent: formmembers[10],
+      ref_service_charges: formmembers[11],
+      notes_service_charges: formmembers[12],
+      ref_interest: formmembers[13],
+      notes_interest: formmembers[14],
+      ref_costs: formmembers[15],
+      notes_costs: formmembers[16],
+      ref_forfeiture: formmembers[17],
+      notes_forfeiture: formmembers[18],
+      ref_lender: formmembers[19],
+      notes_lender: formmembers[20],
+      ref_correspondence_address: formmembers[21],
+      notes_correspondence_address: formmembers[22],
+      ref_reminders: formmembers[23],
+      notes_reminders: formmembers[24]
     },
     success: function(response) {
       hideWrapper();
@@ -234,6 +236,14 @@ function check_necessary(){
     return "exit";
   }
 
+}
 
 
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
 }
