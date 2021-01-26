@@ -6,6 +6,9 @@
  * and open the template in the editor.
  */
 include 'blocks/logged-in.php';
+#if (isset(id)){
+
+#}
 ?>
 
 <!DOCTYPE html>
@@ -152,7 +155,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Correspondence Address</span>
                     </div>
                     <textarea class="form-control col-sm-4" id="ref-correspondence-address" aria-label="With textarea"></textarea>
-                    <textarea class="form-control col-sm-4" id="notes-correspondence-address" aria-label="With textarea"></textarea>
+                    <textarea class="form-control col-sm-4" id="notes-correspondence-address" value="ok this looks like its working" aria-label="With textarea"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -161,7 +164,7 @@ include 'blocks/logged-in.php';
                       <span class="input-group-text col-12" id="basic-addon3">Reminders</span>
                     </div>
                     <input type="text" class="form-control" id="ref-reminders" aria-describedby="basic-addon3">
-                    <input type="text" class="form-control" id="notes-reminders" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" id="notes-reminders" value="ok this looks like its working" aria-describedby="basic-addon3">
                 </div>
             </div>
       </form>

@@ -28,7 +28,7 @@ include 'blocks/logged-in.php';
       <h1 class="cover-heading">Document Automation Page</h1>
       <p class="lead">Please press the button below to start the process</p>
       <p class="lead">
-        <a href="required_docs.php" class="btn btn-lg btn-secondary">Begin</a>
+        <a href="choose_file.php" class="btn btn-lg btn-secondary">Begin</a>
       </p>
     </main>
 </div>

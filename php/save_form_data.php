@@ -29,31 +29,6 @@ $notes_correspondence_address = $_POST['notes_correspondence_address'];
 $ref_reminders = $_POST['ref_reminders'];
 $notes_reminders = $_POST['notes_reminders'];
 
-echo $case_number;
-echo $ref_reg_owner;
-echo $notes_reg_owner;
-echo $ref_address;
-echo $notes_address;
-echo $notes_lease;
-echo $ref_rtm;
-echo $notes_rtm;
-echo $ref_rent;
-echo $notes_rent;
-echo $ref_service_charges;
-echo $notes_service_charges;
-echo $ref_interest;
-echo $notes_interest;
-echo $ref_costs;
-echo $notes_costs;
-echo $ref_forfeiture;
-echo $notes_forfeiture;
-echo $ref_lender;
-echo $notes_lender;
-echo $ref_correspondence_address;
-echo $notes_correspondence_address;
-echo $ref_reminders;
-echo $notes_reminders;
-
 
 require_once 'config.php';
 

@@ -25,9 +25,28 @@ function printData(arr){
     out += '<tr class="table-success">' +
             '<th scope="row">' + arr[i].case_number +'</th>' +
             '<td>' + arr[i].created + '</td>' +
-            '<td><button type="button" class="btn btn-success" onclick=choose(' + arr[i].id + ',"inactive")>Edit</button></td>' +
+            '<td><button type="button" class="btn btn-success btn-block" onclick=choose(' + arr[i].id + ')>Edit</button></td>' +
            '</tr>';
 
   }
   document.getElementById("table").innerHTML = out;
+}
+
+
+function choose(id){
+
+  var xmlhttp = new XMLHttpRequest();
+  var url = "/php/set_file.php";
+  var param = "?id=" + id;
+
+  //console.log("get data script running");
+
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //var myArr = JSON.parse(this.responseText);
+      window.location.href = "lease-info-details.php";
+    }
+  };
+  xmlhttp.open("GET", url+param, true);
+  xmlhttp.send();
 }

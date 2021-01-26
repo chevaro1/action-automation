@@ -6,14 +6,14 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="required_docs.php">Create New Documents</a>
+        <a class="nav-link" href="choose_file.php">Create New Documents</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
-      </li>    
+      </li>
     </ul>
-  </div>  
+  </div>
 </nav>
