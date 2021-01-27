@@ -269,8 +269,8 @@ function loadData(){
 }
 window.onload = function() {
   console.log("in onload function");
-  if (typeof caseNo !== 'undefined'){
-    console.log("caseNo does exist!");
+  if (caseNo !== ''){
+    console.log("caseNo does exist!:" + caseNo);
     loadData();
   } else {
     console.log("no caseNo found");

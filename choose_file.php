@@ -6,7 +6,6 @@
  * and open the template in the editor.
  */
 session_start();
-unset($_SESSION['id']);
 unset($_SESSION['case']);
 
 include 'blocks/logged-in.php';
@@ -37,11 +36,19 @@ include 'blocks/logged-in.php';
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
   <div class="col-md-2"></div>
   <div class="col-md-8">
+    <a href="lease-info-details.php" class="btn btn-success btn-block" role="button">New Project</a>
+  </div>
+  <div class="col-md-2">
+  </div>
+</div>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
     <table class="table">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Case Number</th>
-          <th scope="col">Creation Date</th>
+          <th scope="col">Last Edited</th>
           <th scope="col">Edit</th>
         </tr>
       </thead>

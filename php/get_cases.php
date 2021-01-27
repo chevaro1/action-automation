@@ -12,7 +12,7 @@
 
 require_once 'config.php';
 
-$sql = "SELECT case_number, created FROM `lease_information` ";
+$sql = "SELECT case_number, created FROM `lease_information` ORDER BY created DESC ";
 
 $result = mysqli_query($link, $sql);
 
