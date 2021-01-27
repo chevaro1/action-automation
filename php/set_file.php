@@ -1,7 +1,6 @@
 <?php
 session_start();
 
+$case = $_GET['case'];
 
-$id = $_GET['id'];
-
-$_SESSION["id"] = $id;
+$_SESSION["case"] = $case;

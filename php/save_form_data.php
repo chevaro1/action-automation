@@ -38,7 +38,13 @@ $sql = "INSERT INTO `lease_information`(`case_number`, `created`, `ref_reg_owner
      `notes_correspondence_address`, `ref_reminders`, `notes_reminders`) VALUES ('$case_number','$date','$ref_reg_owner','$notes_reg_owner','$ref_address',
        '$notes_address','$ref_lease','$notes_lease','$ref_rtm','$notes_rtm','$ref_rent','$notes_rent','$ref_service_charges','$notes_service_charges',
        '$ref_interest','$notes_interest','$ref_costs','$notes_costs','$ref_forfeiture','$notes_forfeiture','$ref_lender','$notes_lender','$ref_correspondence_address',
-       '$notes_correspondence_address','$ref_reminders','$notes_reminders')";
+       '$notes_correspondence_address','$ref_reminders','$notes_reminders') ON DUPLICATE KEY UPDATE created= '$date', ref_reg_owner='$ref_reg_owner',
+       notes_reg_owner= '$notes_reg_owner', ref_address= '$ref_address', notes_address= '$notes_address', ref_lease= '$ref_lease', notes_lease= '$notes_lease',
+       ref_rtm= '$ref_rtm', notes_rtm= '$notes_rtm', ref_rent= '$ref_rent', notes_rent= '$notes_rent', ref_service_charges= '$ref_service_charges',
+       notes_service_charges= '$notes_service_charges', ref_interest= '$ref_interest', notes_interest= '$notes_interest', ref_costs= '$ref_costs',
+       notes_costs= '$notes_costs', ref_forfeiture= '$ref_forfeiture', notes_forfeiture= '$notes_forfeiture', ref_lender= '$ref_lender',
+       notes_lender= '$notes_lender', ref_correspondence_address= '$ref_correspondence_address', notes_correspondence_address= '$notes_correspondence_address',
+       ref_reminders= '$ref_reminders', notes_reminders= '$notes_reminders'";
 
 echo $sql;
 

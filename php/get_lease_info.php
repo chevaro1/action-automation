@@ -6,13 +6,11 @@
  * and open the template in the editor.
  */
 
-#echo $cat;
-#echo $fil;
-#echo $category;
+$case = $_GET["case"];
 
 require_once 'config.php';
 
-$sql = "SELECT case_number, created FROM `lease_information` ";
+$sql = "SELECT * FROM `lease_information` WHERE case_number = '$case'";
 
 $result = mysqli_query($link, $sql);
 
@@ -23,6 +21,7 @@ if (mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
         array_push($arr, $row);
         $count += 1;
+
     }
 }
 #echo $count;

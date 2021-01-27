@@ -52,6 +52,8 @@ var formmembers = [
   notes_reminders
 ];
 
+
+
 showWrapper();
 
 
@@ -246,4 +248,65 @@ function isNumber(evt) {
         return false;
     }
     return true;
+}
+
+
+function loadData(){
+    var xmlhttp = new XMLHttpRequest();
+    var url = "/php/get_lease_info.php";
+    var param = "?case=" + caseNo;
+
+    console.log("get data script running");
+
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var myArr = JSON.parse(this.responseText);
+        addData(myArr);
+      }
+    };
+    xmlhttp.open("GET", url+param, true);
+    xmlhttp.send();
+}
+window.onload = function() {
+  console.log("in onload function");
+  if (typeof caseNo !== 'undefined'){
+    console.log("caseNo does exist!");
+    loadData();
+  } else {
+    console.log("no caseNo found");
+  }
+};
+function addData(arr){
+  document.getElementById("case-number").value = ifEmpty(arr[0].case_number);
+  document.getElementById("ref-reg-owner").value = ifEmpty(arr[0].ref_reg_owner);
+  document.getElementById("notes-reg-owner").value = ifEmpty(arr[0].notes_reg_owner);
+  document.getElementById("ref-address").value = ifEmpty(arr[0].ref_address);
+  document.getElementById("notes-address").value = ifEmpty(arr[0].notes_address);
+  document.getElementById("ref-lease").innerHTML = ifEmpty(arr[0].ref_lease);
+  document.getElementById("notes-lease").innerHTML = ifEmpty(arr[0].notes_lease);
+  document.getElementById("ref-rtm").value = ifEmpty(arr[0].ref_rtm);
+  document.getElementById("notes-rtm").value = ifEmpty(arr[0].notes_rtm);
+  document.getElementById("ref-rent").value = ifEmpty(arr[0].ref_rent);
+  document.getElementById("notes-rent").value = ifEmpty(arr[0].notes_rent);
+  document.getElementById("ref-service-charges").value = ifEmpty(arr[0].ref_service_charges);
+  document.getElementById("notes-service-charges").value = ifEmpty(arr[0].notes_service_charges);
+  document.getElementById("ref-interest").innerHTML = ifEmpty(arr[0].ref_interest);
+  document.getElementById("notes-interest").innerHTML = ifEmpty(arr[0].notes_interest);
+  document.getElementById("ref-costs").innerHTML = ifEmpty(arr[0].ref_costs);
+  document.getElementById("notes-costs").innerHTML = ifEmpty(arr[0].notes_costs);
+  document.getElementById("ref-forfeiture").value = ifEmpty(arr[0].ref_forfeiture);
+  document.getElementById("notes-forfeiture").value = ifEmpty(arr[0].notes_forfeiture);
+  document.getElementById("ref-lender").value = ifEmpty(arr[0].ref_lender);
+  document.getElementById("notes-lender").value = ifEmpty(arr[0].notes_lender);
+  document.getElementById("ref-correspondence-address").innerHTML = ifEmpty(arr[0].ref_correspondence_address);
+  document.getElementById("notes-correspondence-address").innerHTML = ifEmpty(arr[0].notes_correspondence_address);
+  document.getElementById("ref-reminders").value = ifEmpty(arr[0].ref_reminders);
+  document.getElementById("notes-reminders").value = ifEmpty(arr[0].notes_reminders);
+}
+
+function ifEmpty(val){
+  if (val == "empty"){
+    val = "";
+  }
+  return val;
 }

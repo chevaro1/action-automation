@@ -22,10 +22,10 @@ function printData(arr){
   var out = "";
   var i;
   for(i = 0; i < arr.length; i++) {
-    out += '<tr class="table-success">' +
+    out += '<tr class="table-secondary">' +
             '<th scope="row">' + arr[i].case_number +'</th>' +
             '<td>' + arr[i].created + '</td>' +
-            '<td><button type="button" class="btn btn-success btn-block" onclick=choose(' + arr[i].id + ')>Edit</button></td>' +
+            '<td><button type="button" class="btn btn-secondary btn-block" onclick=choose(' + arr[i].case_number + ')>Edit</button></td>' +
            '</tr>';
 
   }
@@ -33,13 +33,13 @@ function printData(arr){
 }
 
 
-function choose(id){
+function choose(caseNo){
 
   var xmlhttp = new XMLHttpRequest();
   var url = "/php/set_file.php";
-  var param = "?id=" + id;
+  var param = "?case=" + caseNo;
 
-  //console.log("get data script running");
+  console.log("case = " + caseNo);
 
   xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {

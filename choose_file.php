@@ -5,6 +5,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
+unset($_SESSION['id']);
+unset($_SESSION['case']);
+
 include 'blocks/logged-in.php';
 ?>
 
