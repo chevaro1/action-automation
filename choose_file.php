@@ -50,6 +50,7 @@ include 'blocks/logged-in.php';
           <th scope="col">Case Number</th>
           <th scope="col">Last Edited</th>
           <th scope="col">Edit</th>
+          <th scope="col">Read Only</th>
         </tr>
       </thead>
       <tbody id="table">

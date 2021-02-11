@@ -54,6 +54,7 @@ if (isset($_SESSION["case"])){
   <div class="row">
     <div class="col-sm-12">
       <form>
+        <fieldset disabled>
             <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-4">
@@ -65,22 +66,11 @@ if (isset($_SESSION["case"])){
             <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend col-4">
-                          <span class="input-group-text col-7" id="basic-addon3">Registered Owner</span>
-                          <button class="btn btn-outline-secondary col-5" onclick="addOwner()" type="button">Add owner</button>
+                          <span class="input-group-text col-12" id="basic-addon3">Registered Owner</span>
                         </div>
-                        <div class="input-group-prepend ">
-                          <select class="custom-select" id="order">
-                            <option selected value="ASC">Individual</option>
-                            <option value="DESC">Company</option>
-                          </select>
-                        </div>
-
                         <input type="text" id="ref-reg-owner" class="form-control col-sm-4" aria-describedby="basic-addon3">
-
                         <input type="text" id="notes-reg-owner" class="form-control col-sm-4" aria-describedby="basic-addon3">
                     </div>
-            </div>
-            <div class="form-group" id="addOwner">
             </div>
             <div class="form-group">
                 <div class="input-group mb-3">
@@ -198,46 +188,10 @@ if (isset($_SESSION["case"])){
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12" id="basic-addon3">Lender Name:</span>
+                      <span class="input-group-text col-12" id="basic-addon3">Lender</span>
                     </div>
                     <input type="text" class="form-control" id="ref-lender" aria-describedby="basic-addon3">
                     <input type="text" class="form-control" id="notes-lender" aria-describedby="basic-addon3">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Street:</span>
-                    </div>
-                    <input type="text" class="form-control" id="ref-lender" aria-describedby="basic-addon3">
-                    <input type="text" class="form-control" id="notes-lender" aria-describedby="basic-addon3">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Locality</span>
-                    </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Town</span>
-                    </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Post code</span>
-                    </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -258,12 +212,14 @@ if (isset($_SESSION["case"])){
                     <input type="text" class="form-control" id="notes-reminders" aria-describedby="basic-addon3">
                 </div>
             </div>
+          </fieldset>
       </form>
     </div>
   </div>
 </div>
 <div class="container" style="margin-bottom:20px">
     <div class="text-center">
+      <button type="button" onclick="edit_form()" class="btn btn-secondary btn-lg">Edit</button>
         <button type="button" onclick="submit_form()" class="btn btn-secondary btn-lg">Submit</button>
     </div>
 </div>

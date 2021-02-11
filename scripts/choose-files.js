@@ -26,6 +26,7 @@ function printData(arr){
             '<th scope="row">' + arr[i].case_number +'</th>' +
             '<td>' + arr[i].created + '</td>' +
             '<td><button type="button" class="btn btn-secondary btn-block" onclick=choose(' + arr[i].case_number + ')>Edit</button></td>' +
+            '<td><button type="button" class="btn btn-secondary btn-block" onclick=chooser(' + arr[i].case_number + ')>Read Only</button></td>' +
            '</tr>';
 
   }
@@ -45,6 +46,24 @@ function choose(caseNo){
     if (this.readyState == 4 && this.status == 200) {
       //var myArr = JSON.parse(this.responseText);
       window.location.href = "lease-info-details.php";
+    }
+  };
+  xmlhttp.open("GET", url+param, true);
+  xmlhttp.send();
+}
+
+function chooser(caseNo){
+
+  var xmlhttp = new XMLHttpRequest();
+  var url = "/php/set_file.php";
+  var param = "?case=" + caseNo;
+
+  console.log("case = " + caseNo);
+
+  xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      //var myArr = JSON.parse(this.responseText);
+      window.location.href = "lease-info-read-only.php";
     }
   };
   xmlhttp.open("GET", url+param, true);

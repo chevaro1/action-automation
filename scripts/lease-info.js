@@ -24,6 +24,8 @@ var notes_correspondence_address = '';
 var ref_reminders = '';
 var notes_reminders = '';
 
+var owners = 1;
+
 var formmembers = [
   case_number,
   ref_reg_owner,
@@ -309,4 +311,45 @@ function ifEmpty(val){
     val = "";
   }
   return val;
+}
+
+
+
+function edit_form(){
+  window.location.href = "lease-info-details.php";
+}
+
+function addOwner(){
+
+  if (owners >= 4){
+    alert("Maximum number of owners reached");
+    return;
+  }
+  owners = owners + 1;
+  if (owners == 1){
+    var add = '<div class="input-group mb-3" id="owndiv' + owners + '">' +
+        '<div class="input-group-prepend col-4">' +
+        '<span class="input-group-text col-10 pl-5" id="basic-addon3">Owner ' + owners + '</span>' +
+        '<button class="btn btn-outline-secondary col-2" onclick="removeOwn(' + 'owndiv' + owners + ')" type="button">-</button>' +
+        '</div>' +
+        '<input type="text" id="ref-reg-owner-' + owners + '" class="form-control col-sm-4" aria-describedby="basic-addon3">' +
+        '</div>';
+    document.getElementById("addOwner").innerHTML = add;
+  }
+  if (owners > 1){
+    var add2 = '<div class="input-group mb-3" id="owndiv' + owners + '">' +
+        '<div class="input-group-prepend col-4">' +
+        '<span class="input-group-text col-10 pl-5" id="basic-addon3">Owner:</span>' +
+        '<button class="btn btn-outline-secondary col-2" onclick="removeOwn(' + '\'' + 'owndiv' + owners + '\'' +  ')" type="button">-</button>' +
+        '</div>' +
+        '<input type="text" id="ref-reg-owner-' + owners + '" class="form-control col-sm-4" aria-describedby="basic-addon3">' +
+        '</div>';
+    document.getElementById("addOwner").insertAdjacentHTML('beforeend', add2);
+  }
+}
+
+function removeOwn(cls){
+  var div = document.getElementById(cls);
+  owners = owners - 1;
+  div.remove();
 }
