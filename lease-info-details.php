@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+session_start();
 include 'blocks/logged-in.php';
 if (isset($_SESSION["case"])){
   $id = $_SESSION["id"];
@@ -59,7 +60,7 @@ if (isset($_SESSION["case"])){
                         <div class="input-group-prepend col-4">
                           <span class="input-group-text col-12" id="basic-addon3">Case Number</span>
                         </div>
-                        <input type="text" id="case-number" class="form-control col-sm-4" aria-describedby="basic-addon3" onkeypress="return isNumber(event)" >
+                        <input type="text" id="case-number" class="form-control col-sm-4" aria-describedby="basic-addon3">
                     </div>
             </div>
             <div class="form-group">
@@ -69,9 +70,9 @@ if (isset($_SESSION["case"])){
                           <button class="btn btn-outline-secondary col-5" onclick="addOwner()" type="button">Add owner</button>
                         </div>
                         <div class="input-group-prepend ">
-                          <select class="custom-select" id="order">
-                            <option selected value="ASC">Individual</option>
-                            <option value="DESC">Company</option>
+                          <select class="custom-select" id="owner-type">
+                            <option selected value="individual">Individual</option>
+                            <option value="company">Company</option>
                           </select>
                         </div>
 
@@ -96,8 +97,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Steet</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-address-1" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address-1" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -105,8 +106,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Locality</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -114,8 +115,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Town</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -123,8 +124,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Post code</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -139,11 +140,19 @@ if (isset($_SESSION["case"])){
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12" id="basic-addon3">Title Number</span>
+                    </div>
+                    <input type="text" id="title-no" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
                       <!-- <span class="input-group-text col-12" id="basic-addon3">RTM/ Freeholder/ Manager</span> -->
-                      <select class="custom-select" id="order">
-                        <option selected value="ASC">RTM</option>
-                        <option value="DESC">Freeholder</option>
-                        <option value="DESC">Manager</option>
+                      <select class="custom-select" id="property-manager">
+                        <option selected value="rtm">RTM</option>
+                        <option value="freeholder">Freeholder</option>
+                        <option value="manager">Manager</option>
                       </select>
                     </div>
                     <input type="text" class="form-control col-sm-4" id="ref-rtm" aria-describedby="basic-addon3">
@@ -180,10 +189,26 @@ if (isset($_SESSION["case"])){
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12" id="basic-addon3">Interest Rate (dont add percentage sign)</span>
+                    </div>
+                    <input type="text" class="form-control" id="interest-rate" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12" id="basic-addon3">Costs</span>
                     </div>
                     <textarea class="form-control" id="ref-costs" aria-label="With textarea"></textarea>
                     <textarea class="form-control" id="notes-costs" aria-label="With textarea"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12" id="basic-addon3">Costs price: £</span>
+                    </div>
+                    <input type="text" class="form-control" id="costs-price" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -209,8 +234,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Street:</span>
                     </div>
-                    <input type="text" class="form-control" id="ref-lender" aria-describedby="basic-addon3">
-                    <input type="text" class="form-control" id="notes-lender" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" id="ref-lender-address-1" aria-describedby="basic-addon3">
+                    <input type="text" class="form-control" id="notes-lender-address-1" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -218,8 +243,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Locality</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-lender-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-lender-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -227,8 +252,8 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Town</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-lender-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-lender-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
@@ -236,19 +261,56 @@ if (isset($_SESSION["case"])){
                     <div class="input-group-prepend col-4">
                       <span class="input-group-text col-12 pl-5" id="basic-addon3">Post code</span>
                     </div>
-                    <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
-                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="ref-lender-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-lender-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
                 </div>
             </div>
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-4">
-                      <span class="input-group-text col-12" id="basic-addon3">Correspondence Address</span>
+                      <span class="input-group-text col-12" id="basic-addon3">Correspondence Address:</span>
                     </div>
-                    <textarea class="form-control col-sm-4" id="ref-correspondence-address" aria-label="With textarea"></textarea>
-                    <textarea class="form-control col-sm-4" id="notes-correspondence-address" aria-label="With textarea"></textarea>
+                    <!-- <input type="text" id="ref-address" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-address" class="form-control col-sm-4" aria-describedby="basic-addon3"> -->
                 </div>
             </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Steet</span>
+                    </div>
+                    <input type="text" id="ref-correspondence-address-1" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-correspondence-address-1" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Locality</span>
+                    </div>
+                    <input type="text" id="ref-correspondence-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-correspondence-address-2" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Town</span>
+                    </div>
+                    <input type="text" id="ref-correspondence-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-correspondence-address-3" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12 pl-5" id="basic-addon3">Post code</span>
+                    </div>
+                    <input type="text" id="ref-correspondence-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                    <input type="text" id="notes-correspondence-address-4" class="form-control col-sm-4" aria-describedby="basic-addon3">
+                </div>
+            </div>
+
             <div class="form-group">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend col-4">
@@ -257,6 +319,25 @@ if (isset($_SESSION["case"])){
                     <input type="text" class="form-control" id="ref-reminders" aria-describedby="basic-addon3">
                     <input type="text" class="form-control" id="notes-reminders" aria-describedby="basic-addon3">
                 </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12" id="basic-addon3">By Email</span>
+                    </div>
+                    <input type="text" class="form-control" id="email" aria-describedby="basic-addon3">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend col-4">
+                      <span class="input-group-text col-12" id="basic-addon3">Send Date</span>
+                    </div>
+                    <input type="text" class="form-control" id="datepicker" aria-describedby="basic-addon3">
+                </div>
+            </div>
             </div>
       </form>
     </div>
